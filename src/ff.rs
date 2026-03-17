@@ -1,3 +1,5 @@
+pub mod koala_bear;
+
 use core::ops::{Add, Mul, Neg, Sub};
 
 use subtle::{ConditionallySelectable, ConstantTimeEq, CtOption};
@@ -19,6 +21,8 @@ pub trait FiniteField:
     const ZERO: Self;
     /// Multiplicative identity.
     const ONE: Self;
+    /// Multiplicative generator.
+    const GENERATOR: Self;
 
     /// Compute multiplicative inverse of this element.
     ///

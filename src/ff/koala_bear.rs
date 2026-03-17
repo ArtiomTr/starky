@@ -1,7 +1,8 @@
 use std::ops::{Add, Div, Mul, Neg, Sub};
 
-use starky_ff::FiniteField;
 use subtle::{Choice, ConditionallySelectable, ConstantTimeEq, CtOption};
+
+use super::FiniteField;
 
 #[repr(transparent)]
 #[derive(Debug, Clone, Copy)]
@@ -79,6 +80,7 @@ fn xgcd(x: u32, y: u32) -> (u32, u32, u32) {
 impl FiniteField for KoalaBearField {
     const ONE: Self = Self(1);
     const ZERO: Self = Self(0);
+    const GENERATOR: Self = Self(3);
 
     fn inverse(&self) -> CtOption<Self> {
         let (a, _, _) = xgcd(self.0, PRIME);

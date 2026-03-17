@@ -1,9 +1,7 @@
-[workspace]
-resolver = '3'
-members = [
-    'crates/starky-ff', 
-    'crates/starky-koala'
-]
+[package]
+name = "starky-ff"
+version = "0.1.0"
+edition = "2024"
 
-[workspace.package]
-edition = '2024'
+[dependencies]
+subtle = "2.6.1"
